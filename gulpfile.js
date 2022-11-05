@@ -30,7 +30,7 @@ const rootFolder = path.basename(path.resolve());
 
 // paths
 const srcFolder = "./src";
-const buildFolder = "./app";
+const buildFolder = "./docs";
 const paths = {
   srcSvg: `${srcFolder}/img/svg/**.svg`,
   srcImgFolder: `${srcFolder}/img`,
