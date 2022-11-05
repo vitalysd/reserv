@@ -1,0 +1,140 @@
+.nav {
+  @include tablet {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+    display: block;
+    padding: 50px;
+    width: 80%;
+    height: 100vh;
+    background-color: var(--light-color);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+    transform: translateX(-150%);
+    transition: transform ease-in-out 0.3s;
+    &--active {
+      transform: none;
+    }
+  }
+  @include small-tablet {
+    padding: 40px;
+  }
+  &__list {
+    display: flex;
+    @include tablet {
+      display: block;
+      margin-bottom: 40px;
+    }
+  }
+  &__item {
+    position: relative;
+
+    &:not(:last-child) {
+      margin-right: 30px;
+    }
+
+    @include tablet {
+      margin-right: 0;
+      margin-bottom: 20px;
+      a {
+        transition: color ease-in-out 0.2s;
+      }
+      &:hover {
+        a {
+          color: var(--primory);
+        }
+        &::after {
+          width: initial;
+        }
+      }
+    }
+    @include mobile {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__link {
+    @include tablet {
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+
+  &__phone {
+    display: none;
+    @include tablet {
+      display: block !important;
+    }
+  }
+}
+
+.burger {
+  position: absolute;
+  z-index: 1000;
+  right: 0;
+  top: 0;
+  --burger-width: 40px;
+  --burger-height: 20px;
+  --burger-line-height: 2px;
+  position: relative;
+  display: none;
+  border: none;
+  padding: 0;
+  width: var(--burger-width);
+  height: var(--burger-height);
+  color: #000;
+  background-color: transparent;
+  cursor: pointer;
+
+  @include tablet {
+    display: block;
+  }
+  @include small-tablet {
+    --burger-width: 30px;
+    --burger-height: 20px;
+  }
+}
+.burger::before,
+.burger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: var(--burger-line-height);
+  background-color: currentColor;
+  transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
+}
+.burger::before {
+  top: 0;
+}
+.burger::after {
+  top: calc(100% - var(--burger-line-height));
+}
+.burger__line {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: var(--burger-line-height);
+  background-color: currentColor;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease-in-out;
+}
+.burger--active::before {
+  top: 50%;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
+}
+.burger--active::after {
+  top: 50%;
+  transform: rotate(-45deg);
+  transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
+}
+.burger--active .burger__line {
+  transform: scale(0);
+  transition: transform 0.3s ease-in-out;
+}
+.burger:focus::after {
+  opacity: 1;
+}

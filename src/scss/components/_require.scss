@@ -1,0 +1,29 @@
+.require {
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  &__title {
+    margin-bottom: 40px;
+  }
+}
+
+.require-list {
+  margin-bottom: 40px;
+  list-style: url("../../img/dot.svg");
+  padding: 40px 60px;
+  background-color: var(--primory-color);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px 50px;
+
+  @include small-tablet {
+    grid-template-columns: none;
+    grid-template-rows: auto;
+    padding: 40px 40px;
+  }
+}
+.require-item {
+  &__text {
+    color: var(--light-color);
+  }
+}

@@ -1,0 +1,16 @@
+//settings
+@import "vars";
+@import "mixins";
+@import "fonts";
+@import "settings";
+
+//conponents
+@import "./components/header";
+@import "./components/hero";
+@import "./components/about";
+@import "./components/advantages";
+@import "./components/require";
+@import "./components/process";
+@import "./components/feedback";
+@import "./components/contacts";
+@import "./components/footer";

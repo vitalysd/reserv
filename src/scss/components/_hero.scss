@@ -1,0 +1,149 @@
+.hero {
+  &__container {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      background-image: url(../../img/hero-bg.svg);
+      background-position: right center;
+      background-repeat: no-repeat;
+      height: 100%;
+      width: 100%;
+
+      @include tablet {
+        top: 60%;
+        background-size: auto 60%;
+      }
+
+      @include small-tablet {
+        top: 50%;
+        opacity: 0.2;
+      }
+    }
+  }
+  &__content {
+    padding-top: 140px;
+    padding-bottom: 140px;
+
+    @include small-tablet {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+
+    @include mobile {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+  }
+
+  &__title {
+    position: relative;
+    margin: 0;
+    color: var(--title-color);
+    font-family: "RussoOne";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 43px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    @include small-tablet {
+      font-size: 26px;
+    }
+  }
+  &__descr {
+    position: relative;
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 60px;
+    color: var(--primory-color);
+    font-family: "OpenSans";
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    @include small-tablet {
+      margin-top: 0;
+      font-size: 18px;
+    }
+  }
+
+  &__progress {
+    background-color: var(--primory-color);
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    @include small-tablet {
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
+  }
+
+  &__progress-list {
+    width: 100%;
+    --progress-gap: 90px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: calc(var(--progress-gap) * 2);
+    @include small-tablet {
+      --progress-gap: 60px;
+    }
+    @include mobile {
+      --progress-gap: 30px;
+    }
+  }
+
+  &__progress-item {
+    text-align: center;
+    position: relative;
+    &:not(:last-child) {
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: calc(-1 * var(--progress-gap));
+        transform: translateY(-50%);
+        width: 40px;
+        height: 2px;
+        background-color: var(--yelow-color);
+        @include small-tablet {
+          width: 20px;
+        }
+        @include mobile {
+          width: 4px;
+          height: 4px;
+        }
+      }
+    }
+  }
+
+  &__progress-number {
+    color: var(--light-color);
+    font-style: normal;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    @include small-tablet {
+      font-size: 30px;
+    }
+  }
+
+  &__progress-descr {
+    color: var(--gray-color);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.1;
+    @include small-tablet {
+      font-size: 14px;
+    }
+  }
+}

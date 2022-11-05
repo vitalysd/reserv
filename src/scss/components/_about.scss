@@ -1,0 +1,148 @@
+.about {
+  padding-top: 140px;
+  padding-bottom: 140px;
+
+  @include small-tablet {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    margin-bottom: 60px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    @include small-tablet {
+      grid-template-columns: none;
+      grid-template-rows: repeat(3, 1fr);
+    }
+  }
+
+  &__list-item {
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    padding: 20px;
+    background-color: var(--primory-color);
+    min-height: 200px;
+    color: var(--light-color);
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 33px;
+
+    transition: all ease-in-out 0.3s;
+    &:hover {
+      .about__list-hover {
+        opacity: 1;
+        visibility: visible;
+        top: 0;
+      }
+    }
+    &:first-child {
+      grid-row: 1 / 2 span;
+
+      &::after {
+        position: absolute;
+        z-index: 10;
+        content: "";
+        bottom: -10px;
+        left: 65px;
+        background-image: url(../../img/appliances.svg);
+        background-repeat: no-repeat;
+        background-size: 76% 100%;
+        height: 100%;
+        width: 100%;
+
+        @include mobile {
+          background-size: 90% 90%;
+          left: 10px;
+          bottom: -70px;
+        }
+      }
+
+      @include mobile {
+        grid-row: 1;
+      }
+    }
+
+    &:nth-child(2) {
+      &::after {
+        position: absolute;
+        z-index: 10;
+        content: "";
+        bottom: -10px;
+        left: 10px;
+        background-image: url(../../img/tools.svg);
+        background-repeat: no-repeat;
+        background-size: 90% 140%;
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    &:nth-child(3) {
+      &::after {
+        position: absolute;
+        z-index: 10;
+        content: "";
+        bottom: -10px;
+        left: 60px;
+        background-image: url(../../img/jewelry.svg);
+        background-repeat: no-repeat;
+        background-size: 90% 90%;
+        height: 100%;
+        width: 100%;
+
+        @include mobile {
+          left: 20px;
+          bottom: -25px;
+        }
+      }
+    }
+  }
+
+  &__list-hover {
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 15;
+    top: -50%;
+    left: 0;
+    right: 0;
+    height: 47%;
+
+    transition: all ease-in-out 0.3s;
+
+    // border: solid 1px var(--primory-color);
+    background-color: var(--light-color);
+  }
+
+  &__btn {
+    display: block;
+    margin: 0 auto;
+  }
+
+  &__text {
+    font-style: 16px;
+    font-weight: 600;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    text-align: center;
+    max-width: 400px;
+  }
+
+  &__text-link {
+    color: var(--primory-color);
+    font-size: 18px;
+  }
+}
