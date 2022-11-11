@@ -93,10 +93,10 @@
     grid-template-columns: repeat(3, 1fr);
     gap: calc(var(--progress-gap) * 2);
     @include small-tablet {
-      --progress-gap: 60px;
+      --progress-gap: 30px;
     }
     @include mobile {
-      --progress-gap: 30px;
+      --progress-gap: 10px;
     }
   }
 
@@ -110,16 +110,9 @@
         top: 50%;
         right: calc(-1 * var(--progress-gap));
         transform: translateY(-50%);
-        width: 40px;
-        height: 2px;
+        width: 1px;
+        height: 100%;
         background-color: var(--yelow-color);
-        @include small-tablet {
-          width: 20px;
-        }
-        @include mobile {
-          width: 4px;
-          height: 4px;
-        }
       }
     }
   }
@@ -134,6 +127,9 @@
     @include small-tablet {
       font-size: 30px;
     }
+    @include mobile {
+      font-size: 20px;
+    }
   }
 
   &__progress-descr {
@@ -144,6 +140,9 @@
     line-height: 1.1;
     @include small-tablet {
       font-size: 14px;
+    }
+    @include mobile {
+      font-size: 12px;
     }
   }
 }

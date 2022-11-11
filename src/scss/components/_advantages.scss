@@ -10,92 +10,33 @@
   padding-bottom: 40px;
   background-color: #444444;
   &__container {
-    --advantages-gap: 80px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    @include small-tablet {
-      --advantages-gap: 40px;
-    }
-    @include small-tablet {
-      grid-template-columns: none;
-      grid-template-rows: repeat(3, 1fr);
+    align-items: center;
+    gap: 30px;
 
-      --advantages-gap: 30px;
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
     }
-    gap: calc(var(--advantages-gap) * 2);
+    @include mobile {
+      grid-template-columns: none;
+      grid-template-rows: auto;
+      justify-content: center;
+    }
   }
 }
 
 .advantages-item {
+  padding-left: 40px;
   position: relative;
-  padding-top: 60%;
-  background-position: top center;
+  background-image: url(../../img/done.svg);
+  background-position: left center;
   background-repeat: no-repeat;
-  background-size: 55%;
-
-  @include small-tablet {
-    padding-top: 35%;
-    background-size: 35%;
-  }
-
-  &:not(:last-child) {
-    @include small-tablet {
-      padding-bottom: 30px;
-      border-bottom: solid 4px var(--yelow-color);
-    }
-    &::after {
-      content: "";
-      position: absolute;
-      z-index: 10;
-      top: 50%;
-      transform: translateY(-50%);
-      right: calc(-1 * var(--advantages-gap));
-      height: 4px;
-      width: 40px;
-      background-color: var(--yelow-color);
-
-      @include small-tablet {
-        display: none;
-      }
-    }
-  }
-
-  &:first-child {
-    background-image: url(../../img/adv-1.svg);
-  }
-  &:nth-child(2) {
-    background-image: url(../../img/adv-2.svg);
-  }
-  &:nth-child(3) {
-    background-image: url(../../img/adv-3.svg);
-  }
 
   &__text {
-    display: block;
-    margin: 0 auto;
-    max-width: 250px;
     color: var(--light-color);
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
-    line-height: 22px;
-    text-align: center;
-  }
-
-  &__profit {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -45%;
-
-    @include tablet {
-      bottom: -50%;
-    }
-    @include small-tablet {
-      bottom: -25%;
-    }
-    @include mobile {
-      bottom: -40%;
-    }
   }
 }

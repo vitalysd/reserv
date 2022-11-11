@@ -96,3 +96,69 @@ window.addEventListener("scroll", () => {
 });
 
 ///////////////CAUNTERS//////////////////
+let nums = document.querySelectorAll(".hero__progress-number");
+let interval = 2000;
+
+nums.forEach((num) => {
+  let startNum = 0;
+  let endNum = parseInt(num.getAttribute("data-val"));
+  let duration = Math.round(interval / endNum);
+  if (endNum < 1000) {
+    let counter = setInterval(function () {
+      startNum += 1;
+      num.textContent = startNum;
+      if (startNum == endNum) {
+        clearInterval(counter);
+      }
+    }, duration);
+  } else {
+    let counter = setInterval(function () {
+      startNum += 20;
+      num.textContent = startNum;
+      if (startNum > endNum) {
+        clearInterval(counter);
+      }
+    }, 1);
+  }
+});
+
+/////////////////SEND-MESSAGE////////////////////////
+
+const TOKEN = "5693875023:AAHJ3oxqekMcYDdQH7a5IS2taX5G__5tt4M";
+const CHAT_ID = "-1001722979024";
+const URI_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+
+const forms = document.querySelectorAll(".form");
+const formStatus = document.querySelectorAll(".status-form");
+const formSend = document.querySelectorAll(".form-send");
+
+forms.forEach((i) => {
+  i.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    let message = `<b>Заявка с сайта!</b>\n`;
+    message += `<b>Отправитель:</b> ${this.name.value} \n`;
+    message += `<b>Номер телефона:</b> ${this.phone.value} \n`;
+    message += `<b>Сообщение:</b> ${this.text.value} \n`;
+
+    axios
+      .post(URI_API, {
+        chat_id: CHAT_ID,
+        parse_mode: "html",
+        text: message,
+      })
+      .then((res) => {
+        formSend.forEach((i) => {
+          i.style.display = "none";
+        });
+        formStatus.forEach((i) => {
+          i.innerHTML = "Спасибо! Мы вам перезвоним!";
+        });
+        this.name.value = "";
+        this.phone.value = "";
+        this.text.value = "";
+      })
+      .catch((err) => {})
+      .finally(() => {});
+  });
+});

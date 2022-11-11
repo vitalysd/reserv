@@ -1,12 +1,12 @@
-<div class="modal__wrapper" id="modal-form">
+<div class="modal__wrapper">
   <div class="modal">
     <div class="modal__close">x</div>
     <div class="modal__title">
       <span class="status-form">Заказать звонок</span>
     </div>
     <div class="modal__body">
-      <form action="#" class="form modal-form">
-        <label class="modal-form__field">
+      <form method="post" enctype="multipart/form-data" class="modal-form form">
+        <label class="modal-form__field form-send">
           <input
             class="input-reset modal-form__input"
             type="text"
@@ -15,7 +15,7 @@
             required
           />
         </label>
-        <label class="modal-form__field">
+        <label class="modal-form__field form-send">
           <input
             class="input-reset modal-form__input"
             type="tel"
@@ -24,15 +24,18 @@
             required
           />
         </label>
-        <label class="modal-form__field">
+        <label class="modal-form__field form-send">
           <input
             class="input-reset modal-form__input"
             type="text"
-            name="message"
+            name="text"
             placeholder="Ваш вопрос"
           />
         </label>
-        <button class="btn-reset main-btn modal-form__btn" type="submit">
+        <button
+          class="btn-reset main-btn modal-form__btn form-send"
+          type="submit"
+        >
           <span>Отправить</span>
         </button>
       </form>

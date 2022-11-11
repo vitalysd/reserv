@@ -2,8 +2,8 @@
   <div class="container">
     <h2 class="main-title footer__title status-form">Остались вопросы?</h2>
 
-    <form action="#" class="form footer-form">
-      <label class="footer-form__field">
+    <form method="post" class="form footer-form">
+      <label class="footer-form__field form-send">
         <input
           class="input-reset footer-form__input"
           type="text"
@@ -11,7 +11,7 @@
           placeholder="Имя"
         />
       </label>
-      <label class="footer-form__field">
+      <label class="footer-form__field form-send">
         <input
           class="input-reset footer-form__input"
           type="tel"
@@ -19,15 +19,18 @@
           placeholder="Номер телефона"
         />
       </label>
-      <label class="footer-form__field">
+      <label class="footer-form__field form-send">
         <input
           class="input-reset footer-form__input"
           type="text"
-          name="message"
+          name="text"
           placeholder="Вопрос"
         />
       </label>
-      <button class="btn-reset main-btn footer-form__btn" type="submit">
+      <button
+        class="btn-reset main-btn footer-form__btn form-send"
+        type="submit"
+      >
         <span>Отправить</span>
       </button>
     </form>
